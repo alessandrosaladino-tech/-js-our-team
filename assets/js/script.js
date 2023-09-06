@@ -47,6 +47,31 @@ barbara-ramos-graphic-designer.jpg
 
 // Creo l'array di oggetti con i componenti del team
 
+
+const newTeamMate = {
+    name: "",
+    job: "",
+    imag: "",
+}
+
+const addButton = document.getElementById("add")
+
+addButton.addEventListener("click", function () {
+    
+    const nameAdd = document.getElementById("userName").value;
+    const jobAdd = document.getElementById("userJob").value;
+
+    newTeamMate.name = nameAdd;
+    newTeamMate.job = jobAdd;
+
+    newTeamMate.push(team)
+    
+   
+})
+console.log(newTeamMate)
+
+
+
 const team = [
 
     {
@@ -121,3 +146,11 @@ for (let i = 0; i < team.length; i++) {
     DOMEl.insertAdjacentHTML("beforeend", markup)
 
 }
+
+
+
+
+
+
+
+
