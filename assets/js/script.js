@@ -109,7 +109,7 @@ for (let i = 0; i < team.length; i++) {
     const markup =
         `
         <div class="col-4">
-            <div class="card">
+            <div class="card mb-3">
                 <img src="${teamComponent.imag}" alt="">
                 <div class="card-body">
                     <h3>${teamComponent.name}</h3>
