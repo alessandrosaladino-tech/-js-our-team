@@ -48,7 +48,7 @@ barbara-ramos-graphic-designer.jpg
 // Creo l'array di oggetti con i componenti del team
 
 const team = [
- 
+
     {
         name: "Wayne Barnett",
         job: "Founder & CEO",
@@ -93,7 +93,7 @@ const team = [
 //Stampo su console le informazioni del membro del team per ognuno di essi
 for (let i = 0; i < team.length; i++) {
     const teamComponent = team[i];
-    
+
     for (const key in teamComponent) {
         console.log(` ${key} : ${teamComponent[key]}`);
     }
@@ -101,3 +101,23 @@ for (let i = 0; i < team.length; i++) {
 
 
 //Stampo in pagina le informazioni
+
+const DOMEl = document.querySelector(".team_list");
+
+for (let i = 0; i < team.length; i++) {
+    const teamComponent = team[i]
+    const markup =
+        `
+        <div class="col-4">
+            <div class="card">
+                <img src="${teamComponent.imag}" alt="">
+                <div class="card-body">
+                    <h3>${teamComponent.name}</h3>
+                    <p>${teamComponent.job}</p>
+                </div>
+            </div>
+        </div>
+    `
+    DOMEl.insertAdjacentHTML("beforeend", markup)
+
+}
