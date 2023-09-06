@@ -52,39 +52,52 @@ const team = [
     {
         name: "Wayne Barnett",
         job: "Founder & CEO",
+        imag: "./assets/img/wayne-barnett-founder-ceo.jpg",
 
     },
     {
         name: "Angela Carrol",
         job: "Chief Editor",
-
+        imag: './assets/img/angela-caroll-chief-editor.jpg',
     },
 
     {
         name: "Walter Gordon",
         job: "Office Manager",
-
+        imag: './assets/img/walter-gordon-office-manager.jpg',
     },
 
     {
         name: "Angela Lopez",
         job: "Social Media Manager",
-
+        imag: './assets/img/angela-lopez-social-media-manager.jpg',
     },
 
     {
         name: "Scott Estrada",
         job: "Developer",
-
+        imag: './assets/img/scott-estrada-developer.jpg',
     },
 
     {
         name: "Barbara Ramos",
         job: "Graphic Designer",
-
+        imag: './assets/img/barbara-ramos-graphic-designer.jpg',
     },
 
 
 
 
 ]
+
+//Stampo su console le informazioni del membro del team per ognuno di essi
+for (let i = 0; i < team.length; i++) {
+    const teamComponent = team[i];
+    
+    for (const key in teamComponent) {
+        console.log(` ${key} : ${teamComponent[key]}`);
+    }
+}
+
+
+//Stampo in pagina le informazioni
