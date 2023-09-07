@@ -48,27 +48,9 @@ barbara-ramos-graphic-designer.jpg
 // Creo l'array di oggetti con i componenti del team
 
 
-const newTeamMate = {
-    name: "",
-    job: "",
-    imag: "",
-}
 
-const addButton = document.getElementById("add")
 
-addButton.addEventListener("click", function () {
-    
-    const nameAdd = document.getElementById("userName").value;
-    const jobAdd = document.getElementById("userJob").value;
 
-    newTeamMate.name = nameAdd;
-    newTeamMate.job = jobAdd;
-
-    newTeamMate.push(team)
-    
-   
-})
-console.log(newTeamMate)
 
 
 
@@ -128,24 +110,57 @@ for (let i = 0; i < team.length; i++) {
 //Stampo in pagina le informazioni
 
 const DOMEl = document.querySelector(".team_list");
+generateTeamCards(team,DOMEl)
 
-for (let i = 0; i < team.length; i++) {
-    const teamComponent = team[i]
-    const markup =
-        `
-        <div class="col-4">
-            <div class="card mb-3">
-                <img src="${teamComponent.imag}" alt="">
-                <div class="card-body">
-                    <h3>${teamComponent.name}</h3>
-                    <p>${teamComponent.job}</p>
+/**
+ * 
+ * @param {Array} team 
+ * @param {object} DOMEl 
+ */
+function generateTeamCards(team , DOMEl) {
+    DOMEl.innerHTML = "";
+    for (let i = 0; i < team.length; i++) {
+        const teamComponent = team[i]
+        const markup =
+            `
+            <div class="col-4">
+                <div class="card mb-3">
+                    <img src="${teamComponent.imag}" alt="">
+                    <div class="card-body">
+                        <h3>${teamComponent.name}</h3>
+                        <p>${teamComponent.job}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    `
-    DOMEl.insertAdjacentHTML("beforeend", markup)
-
+        `
+        DOMEl.insertAdjacentHTML("beforeend", markup)
+    
+    }
 }
+
+// Bonus del Bonus . Permetti all'utente di aggiungere una card al team con i valori da lui inseriti
+const addButton = document.getElementById("add")
+
+addButton.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const nameAdd = document.getElementById("userName").value;
+    const jobAdd = document.getElementById("userJob").value;
+
+    const newTeamMate = {
+        name: nameAdd,
+        job: jobAdd,
+        imag: "https://picsum.photos/200/300",
+    }
+
+    team.push(newTeamMate)
+
+    generateTeamCards(team, DOMEl)
+
+    nameAdd.value = "";
+    jobAdd.value = ""    
+   
+})
 
 
 
